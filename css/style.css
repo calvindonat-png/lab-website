@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+nav ul {  /* remove the default list styling and add some padding */
+  list-style: none; 
+  padding: 0;
+  margin:0;     
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+nav ul #home {
+  margin: 10px 10px;
+  flex-grow: 4;
+  text-align: left;
+}
+
+#home a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li { /* add some spacing between the list items */
+  margin: 10px 10px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.nav-link {
+  position: relative;         /* 1. Sets the anchor point for the underline */
+  color: black;
+  text-decoration: none;      /* 2. Removes default underline */
+  padding-bottom: 4px;        /* 3. Controls space between text and line */
+  display: inline-block;      /* Allows spacing to work properly */
+  transition: color 0.3s ease;
+}
+
+/* Creates a fake underline line using a pseudo-element */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;                /* Span the entire width of the word */
+  height: 2px;                /* Thickness of the underline */
+  bottom: 0;
+  left: 0;
+  background-color: white;      /* Underline color */
+  
+  /* Core Animation Setup */
+  transform: scaleX(0);       /* Shrinks the line horizontally to 0% (hidden) */
+  transform-origin: center;   /* Anchors the transformation to the middle */
+  transition: transform 0.3s ease-out; /* Animates the scale transition */
+}
+
+/* Hover States */
+.nav-link:hover {
+  color: white;                 /* Changes text color on hover */
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);       /* Expands the line outward to 100% width */
+}
+
+
+#homeimage {
+  background-image: url('../images/iceland-black-sand-beach.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width:100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  align-items: center;        /* Vertically center the content */
+  justify-content: center;    /* Horizontally center the content */
+  font-size: 2em;             /* Increase font size for visibility */
+  color: #333;               /* Dark text color for contrast */
+  padding: 0;
+}
+
